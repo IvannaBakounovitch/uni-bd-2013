@@ -1,0 +1,29 @@
+
+
+
+/**Lista de Todos Los Miembros**
+select * from members;
+**/
+/**Lista de Todos Los Libros**
+select * from books;
+**/
+/**Libro prestado por Dave
+select title 
+from books right outer join loans on book_id=books.id
+where member_id='103';
+ **/
+/**Ver que miembros no tienen prestado ningun libro**
+select id,name
+from members left outer join loans on members.id=member_id
+where book_id is null order by id;
+**/
+/**Libros en stock**
+select id,title
+from books b left join loans l on b.id=book_id
+where book_id is null order by id;
+**
+/**Libros prestados con sus nombres y los miembros**
+select name,title
+from members m, books b, loans l
+where member_id=m.id and book_id=b.id ;
+ **/
